@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  background-color: #364fc7;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 15rem;
+}
+
+h1 {
+  font-size: 4.2rem;
+}
+
+.hand-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100vw;
+}
+
+.score-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60vw;
+  font-size: 2.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.points-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-size: 3.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+input,
+label {
+  height: 5rem;
+  width: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* gap: 12.4rem; Adds space between each input/label pair */
+  margin-top: 12.4rem;
+  width: 50vw;
+}
+
+.option label {
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 1.8rem;
+}
+
+/* .option label:hover {
+  background-color: #046edf;
+} */
+
+.option input:checked + label {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+label {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.move {
+  animation: move 0.4s ease-in-out infinite; /* Increased duration for smoothness */
+}
+
+@keyframes move {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(20deg); /* Halfway rotation */
+  }
+  100% {
+    transform: rotate(0deg); /* Back to start smoothly */
+  }
+}

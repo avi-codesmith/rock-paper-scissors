@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissor</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>STONE PAPER SCISSOR</h1>
+      <div class="hand-wrapper">
+        <div class="com-hand-wrapper">
+          <img src="paperComputer.png" class="comp-hand" alt="Loading..." />
+        </div>
+        <div class="you-hand-wrapper">
+          <img src="paperPlayer.png" class="you-hand" alt="Loading..." />
+        </div>
+      </div>
+      <div class="score-wrapper">
+        <div>Computer</div>
+        <div class="points-wrapper">
+          <div class="comp-points">0</div>
+          <div>/</div>
+          <div class="you-points">0</div>
+        </div>
+        <div>You</div>
+      </div>
+      <!-- <div class="choose">choose an option</div> -->
+      <div class="option">
+        <input
+          type="radio"
+          id="option1"
+          name="select"
+          style="display: none"
+          class="op"
+        />
+        <label for="option1">Rock</label>
+
+        <input
+          type="radio"
+          id="option2"
+          name="select"
+          style="display: none"
+          class="op"
+        />
+        <label for="option2">Paper</label>
+
+        <input
+          type="radio"
+          id="option3"
+          name="select"
+          style="display: none"
+          class="op"
+        />
+        <label for="option3">Scissor</label>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

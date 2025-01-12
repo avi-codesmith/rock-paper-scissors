@@ -1,31 +1,87 @@
 "use strict";
 
-// Select all options (radio inputs with class 'op')
-const allOptions = document.querySelectorAll(".op");
+const computer = document.querySelector(".comp-hand");
+const you = document.querySelector(".you-hand");
+const comPointsElement = document.querySelector(".comPoints");
+const youPointsElement = document.querySelector(".youPoints");
+const options = document.querySelectorAll(".option button");
+const sound = new Audio("sound.mp3");
+const win = new Audio("win.mp3");
+const lose = new Audio("lose.mp3");
+let playing = true;
 
-// Event listener for all options (Rock, Paper, Scissor)
-allOptions.forEach((option) => {
-  option.addEventListener("click", function () {
-    // Check which option is selected
-    const selectedOption = option.id;
+options.forEach((button) => {
+  button.addEventListener("click", function () {
+    if (playing) {
+      computer.classList.add("move");
+      you.classList.add("move");
 
-    // Change image source based on selected option
-    if (selectedOption === "option1") {
-      document.querySelector(".you-hand").src = "stonePlayer.png"; // Rock
-    } else if (selectedOption === "option2") {
-      document.querySelector(".you-hand").src = "paperPlayer.png"; // Paper
-    } else if (selectedOption === "option3") {
-      document.querySelector(".you-hand").src = "scissorsPlayer.png"; // Scissor
+      sound.pause();
+      sound.currentTime = 0;
+      sound.play();
+
+      setTimeout(() => {
+        computer.classList.remove("move");
+        you.classList.remove("move");
+
+        you.src = button.innerHTML + "Player.png";
+
+        let random = Math.trunc(Math.random() * 3);
+        const comp = ["stone", "paper", "scissors"];
+        let choice = comp[random];
+        computer.src = choice + "Computer.png";
+
+        let cPoints = parseInt(comPointsElement.innerHTML);
+        let yPoints = parseInt(youPointsElement.innerHTML);
+
+        if (button.innerHTML === "stone") {
+          if (choice === "paper") {
+            cPoints++;
+            comPointsElement.innerHTML = cPoints;
+          } else if (choice === "scissors") {
+            yPoints++;
+            youPointsElement.innerHTML = yPoints;
+          }
+        } else if (button.innerHTML === "paper") {
+          if (choice === "stone") {
+            yPoints++;
+            youPointsElement.innerHTML = yPoints;
+          } else if (choice === "scissors") {
+            cPoints++;
+            comPointsElement.innerHTML = cPoints;
+          }
+        } else if (button.innerHTML === "scissors") {
+          if (choice === "paper") {
+            yPoints++;
+            youPointsElement.innerHTML = yPoints;
+          } else if (choice === "stone") {
+            cPoints++;
+            comPointsElement.innerHTML = cPoints;
+          }
+        }
+
+        if (cPoints === 3) {
+          document.querySelector(".body").style.backgroundColor = "#fa5252";
+          document.querySelector("h1").textContent = "You Lose!";
+          lose.pause();
+          lose.currentTime = 0;
+          lose.play();
+          playing = false;
+        } else if (yPoints === 3) {
+          document.querySelector(".body").style.backgroundColor = "#60b347";
+          document.querySelector("h1").textContent = "You Won!";
+          win.pause();
+          win.currentTime = 0;
+          win.play();
+          playing = false;
+        }
+
+        document
+          .querySelector(".margin-b")
+          .addEventListener("click", function () {
+            location.reload();
+          });
+      }, 500);
     }
-
-    // Add animation to both hands
-    document.querySelector(".you-hand").classList.add("move");
-    document.querySelector(".comp-hand").classList.add("move");
-
-    // Remove animation after it completes
-    setTimeout(() => {
-      document.querySelector(".you-hand").classList.remove("move");
-      document.querySelector(".comp-hand").classList.remove("move");
-    }, 400); // Match the animation duration (0.4s)
   });
 });

@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rock Paper Scissor</title>
+    <title>Stone Paper Scissors</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="body">
     <div class="container">
-      <h1>STONE PAPER SCISSOR</h1>
+      <button class="btn margin-b">Again</button>
+      <h1>STONE PAPER SCISSORS</h1>
       <div class="hand-wrapper">
         <div class="com-hand-wrapper">
           <img src="paperComputer.png" class="comp-hand" alt="Loading..." />
@@ -20,40 +21,16 @@
       <div class="score-wrapper">
         <div>Computer</div>
         <div class="points-wrapper">
-          <div class="comp-points">0</div>
+          <div class="comPoints">0</div>
           <div>/</div>
-          <div class="you-points">0</div>
+          <div class="youPoints">0</div>
         </div>
         <div>You</div>
       </div>
-      <!-- <div class="choose">choose an option</div> -->
       <div class="option">
-        <input
-          type="radio"
-          id="option1"
-          name="select"
-          style="display: none"
-          class="op"
-        />
-        <label for="option1">Rock</label>
-
-        <input
-          type="radio"
-          id="option2"
-          name="select"
-          style="display: none"
-          class="op"
-        />
-        <label for="option2">Paper</label>
-
-        <input
-          type="radio"
-          id="option3"
-          name="select"
-          style="display: none"
-          class="op"
-        />
-        <label for="option3">Scissor</label>
+        <button type="button" class="btn1 btn">stone</button>
+        <button type="button" class="btn2 btn">paper</button>
+        <button type="button" class="btn3 btn">scissors</button>
       </div>
     </div>
     <script src="script.js"></script>

@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
 }
 
 html {
@@ -35,6 +36,7 @@ h1 {
   align-items: center;
   justify-content: space-around;
   width: 100vw;
+  height: 40rem;
 }
 
 .score-wrapper {
@@ -57,46 +59,34 @@ h1 {
   text-transform: uppercase;
 }
 
-input,
-label {
-  height: 5rem;
-  width: 15rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .option {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  /* gap: 12.4rem; Adds space between each input/label pair */
-  margin-top: 12.4rem;
+  justify-content: space-around;
   width: 50vw;
+  margin-top: 8.4rem;
 }
 
-.option label {
-  cursor: pointer;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-right: 10px;
+.btn {
+  height: 5rem;
+  width: 15rem;
   font-size: 1.8rem;
-}
-
-/* .option label:hover {
-  background-color: #046edf;
-} */
-
-.option input:checked + label {
-  background-color: #007bff;
-  color: white;
-  border-color: #007bff;
-}
-
-label {
   text-transform: uppercase;
-  font-size: 1.2rem;
-  font-weight: 500;
+  color: #fff;
+  background-color: #364fc7;
+  border: 2px solid #fff;
+  border-radius: 6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: royalblue;
+  color: #fff;
+}
+
+.btn:active {
+  background-color: rgb(42, 83, 206);
 }
 
 .move {
@@ -113,4 +103,8 @@ label {
   100% {
     transform: rotate(0deg); /* Back to start smoothly */
   }
+}
+
+.margin-b {
+  margin-bottom: 2.4rem;
 }

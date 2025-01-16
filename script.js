@@ -62,7 +62,7 @@ options.forEach((button) => {
 
         if (cPoints === 3) {
           document.querySelector(".body").style.backgroundColor = "#fa5252";
-          document.querySelector("h1").textContent = "You Loose!";
+          document.querySelector("h1").textContent = "You Lose!";
           lose.pause();
           lose.currentTime = 0;
           lose.play();

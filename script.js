@@ -21,15 +21,16 @@ options.forEach((button) => {
       sound.play();
 
       setTimeout(() => {
-        computer.classList.remove("move");
-        you.classList.remove("move");
+        let random = Math.floor(Math.random() * 3);
+        console.log(random);
 
-        you.src = button.innerHTML + "Player.png";
-
-        let random = Math.trunc(Math.random() * 3);
         const comp = ["stone", "paper", "scissors"];
         let choice = comp[random];
         computer.src = choice + "Computer.png";
+
+        you.src = button.innerHTML + "Player.png";
+        computer.classList.remove("move");
+        you.classList.remove("move");
 
         let cPoints = parseInt(comPointsElement.innerHTML);
         let yPoints = parseInt(youPointsElement.innerHTML);
